@@ -10,7 +10,7 @@
                 <h2>Cadastro</h2>
             </div>
             <div class="card-body">
-                <form method="post" action="">
+                <form method="POST" action="../acoes.php">
                     <input class="form-control" type="text" placeholder="Digite o nome" name="nome" id="nome">
                     <br />
                     <input class="form-control" type="text" placeholder="Digite o sobrenome" name="sobrenome" id="sobrenome">
@@ -19,6 +19,7 @@
                     <br />
                     <input class="form-control" type="text" placeholder="Digite celular" name="celular" id="celular">
                     <br />
+                    <input type="hidden" name="acao" value="inserir">
                     <button class="btn btn-success">CADASTRAR</button>
                 </form>
             </div>
