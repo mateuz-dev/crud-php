@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    verificarLogin();
+    
     include('../componentes/header.php');
 ?>
 
@@ -9,6 +12,20 @@
             <div class="card-header">
                 <h2>Cadastro</h2>
             </div>
+
+            <ul>
+
+                <?php
+                if (isset($_SESSION["erros"])) {
+                    foreach($_SESSION["erros"] as $erro){
+                    echo "<li> $erro </li>";
+                    }
+                    unset($_SESSION["erros"]);
+                }
+                ?>
+
+            </ul>
+
             <div class="card-body">
                 <form method="POST" action="../acoes.php">
                     <input class="form-control" type="text" placeholder="Digite o nome" name="nome" id="nome">

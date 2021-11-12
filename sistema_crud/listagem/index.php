@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    // verificarLogin();
+
     require('../conexao.php');
     include('../componentes/header.php');
     $sql = "SELECT * FROM tbl_pessoa;";
@@ -43,7 +46,7 @@
                 <th><?php echo $celular ?></th>
                 <th>
                     <a class="btn btn-warning" href="../cadastro/editar.php?id=<?php echo $usuario["cod_pessoa"]?>">Editar</a>
-                    <a class="btn btn-danger" href="../acoes.php?cod_pessoa=<?php echo $usuario["cod_pessoa"].'name="acao"'.'value="deletar"'?>">Excluir</a>      
+                    <a class="btn btn-danger" href="../acoes.php?id=<?php echo $usuario["cod_pessoa"]."&name=acao"."&value=deletar"?>">Excluir</a>
                 </th>
             </tr>
         <?php

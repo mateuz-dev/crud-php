@@ -13,11 +13,6 @@ email varchar(500) not null,
 celular varchar(20) not null
 );
 
-INSERT INTO tbl_pessoa (nome, sobrenome, email, celular)
-				VALUES ('A', '-', '-', '-');
-                       
-                       
 SELECT * FROM tbl_pessoa;
 
-INSERT INTO tbl_pessoa (nome, sobrenome, email, celular) 
-            VALUES ('Mateus', 'Mateus', 'Mateus', 'Mateus');
+ALTER TABLE tbl_pessoa ADD senha varchar(250);

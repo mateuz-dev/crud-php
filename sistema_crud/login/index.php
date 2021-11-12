@@ -1,21 +1,22 @@
 <?php
-    include('../componentes/header.php');
+    session_start();
 ?>
 
     <div class="container-geral">
     
         <div class="container-form">
     
-                <form action="processa_login.php" method="POST">
+                <form action="../processa_login.php" method="POST">
+                    <input type="hidden" name="acao" value="login">
                     
                     <div class="form-group">
-                        <label for="txt_usuario">USUÁRIO</label>
-                        <input type="text" class="form-control" name="txt_usuario" id="txt_usuario">
+                        <label for="nomeUsuario">USUÁRIO</label>
+                        <input type="text" class="form-control" name="nomeUsuario" id="nomeUsuario">
                     </div>
 
                     <div class="form-group">
-                        <label for="txt_senha">SENHA</label>
-                        <input type="password" class="form-control" name="txt_senha" id="txt_senha">
+                        <label for="senhaUsuario">SENHA</label>
+                        <input type="password" class="form-control" name="senhaUsuario" id="senhaUsuario">
                     </div>
 
                     <div class="form-group">
