@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require("conexao.php");
 
+    require("conexao.php");
 
 
     function realizarLogin($nome, $senha, $connection){
@@ -16,16 +16,13 @@
         if(isset($usuario["nome"]) && isset($usuario["senha"])){
             $_SESSION["usuarioSenha"] = $usuario["senha"];
             $_SESSION["usuarioNome"] = $usuario["nome"];
+            $_SESSION["usuarioId"] = $usuario["cod_pessoa"];
             header("location: listagem/");
         } else{
             header("location: login/");
         }
 
     }
-
-
-
-    function verificarLogin(){}
 
 
     switch ($_POST["acao"]) {
@@ -38,7 +35,6 @@
 
 
         case 'logout':
-            session_unset();
             session_destroy();
             header("location: login/");
         break;

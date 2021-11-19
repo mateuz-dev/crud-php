@@ -39,8 +39,8 @@
                 $email = $_POST["email"];
                 $celular = $_POST["celular"];
     
-                $sql = "INSERT INTO tbl_pessoa (nome, sobrenome, email, celular) 
-                VALUES ('$nome', '$sobrenome', '$email', '$celular')";
+                $sql = "INSERT INTO tbl_pessoa (nome, sobrenome, email, celular, senha) 
+                VALUES ('$nome', '$sobrenome', '$email', '$celular', '123')";
     
                 $resultado = mysqli_query($connection, $sql);
     
@@ -104,7 +104,7 @@
 
 
         case "deletar":
-            $idUsuario = $_POST["idUsuario"];
+            $idUsuario = $_POST["cod_pessoa"];
 
             $sql = "DELETE FROM tbl_pessoa WHERE cod_pessoa = $idUsuario";
 

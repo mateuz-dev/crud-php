@@ -36,10 +36,22 @@
 
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="../login/">Sair</a>
+            <a class="nav-link" onclick="logout()">Sair</a>
+
+            <form action="../processa_login.php" method="post" id="formLogout">
+                <input type="hidden" name="acao" value="logout">
+            </form>
         </li>
         
     </ul>
     
 
 </nav>
+
+<script lang="javascript">
+    function logout() {
+        if (confirm("Tem certeza que deseja encerrar esta sessão?")) {
+            document.querySelector("#formLogout").submit();
+        }
+    }
+</script>

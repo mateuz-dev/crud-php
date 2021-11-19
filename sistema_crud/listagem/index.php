@@ -1,6 +1,10 @@
 <?php
+
     session_start();
-    // verificarLogin();
+
+    if(!isset($_SESSION["usuarioId"])) {
+        header("location: ../login/index.php");
+    }
 
     require('../conexao.php');
     include('../componentes/header.php');
@@ -46,7 +50,12 @@
                 <th><?php echo $celular ?></th>
                 <th>
                     <a class="btn btn-warning" href="../cadastro/editar.php?id=<?php echo $usuario["cod_pessoa"]?>">Editar</a>
-                    <a class="btn btn-danger" href="../acoes.php?id=<?php echo $usuario["cod_pessoa"]."&name=acao"."&value=deletar"?>">Excluir</a>
+                    <a class="btn btn-danger" onclick="deletar(<?php echo $id?>)">Excluir</a>
+
+                    <form method="post" action="../acoes.php" id="formDeletar">
+                        <input type="hidden" name="acao" value="deletar"/>
+                        <input type="hidden" name="cod_pessoa" id="idUsuario" />
+                    </form>
                 </th>
             </tr>
         <?php
@@ -55,6 +64,16 @@
     </tbody>
 
     </table>
+
+
+    <script lang="javascript">
+        function deletar(idUsuario) {
+            if (confirm("Tem certeza que deseja deletar este produto?")) {
+                document.querySelector("#idUsuario").value = idUsuario;
+                document.querySelector("#formDeletar").submit();
+            }
+        }
+    </script>
 
 </div>
 

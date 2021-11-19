@@ -1,6 +1,10 @@
 <?php
+
     session_start();
-    verificarLogin();
+
+    if(!isset($_SESSION["usuarioId"])) {
+        header("location: ../login/index.php");
+    }
     
     require('../conexao.php');
     include('../componentes/header.php');
